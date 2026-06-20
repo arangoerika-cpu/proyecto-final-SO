@@ -1,0 +1,11 @@
+FROM rockylinux:9
+
+RUN dnf install -y python3 && dnf clean all
+
+COPY server.py /app/server.py
+
+WORKDIR /app
+
+EXPOSE 5000
+
+CMD ["python3", "server.py"]
